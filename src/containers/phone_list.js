@@ -23,3 +23,9 @@ class PhoneList extends PureComponent {
     )
   }
 }
+
+function mapStateToProps({ phones }) {
+  return { phones };
+}
+
+export default connect(mapStateToProps)(PhoneList);

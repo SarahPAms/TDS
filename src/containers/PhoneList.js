@@ -1,24 +1,28 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import fetchPhones from '../actions/fetchPhones'
+
 
 class PhoneList extends PureComponent {
-  renderList(){
+  renderList(phones){
     return this.props.phones.map(() => {
       return (
         <li
-        key={phone.model}
-        onClick={()=> this.props.selectPhone(phone)}
+        key={phones.full_name}
+        onClick={()=> this.props.selectPhone(phones)}
         className="list-group-item">
-        {phone.model}
+        {phones.full_name}
         </li>
       );
     });
   }
 
   render(){
+    fetchPhones()
+    console.log(fetchPhones)
     return(
       <ul className="list-group col-md-4">
-        {this.renderList()}
+        {this.renderList(fetchPhones)}
       </ul>
     )
   }

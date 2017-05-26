@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import PhoneList from '../containers/phone_list'
+import PhoneList from '../containers/PhoneList'
 
 export default class App extends PureComponent {
   render() {

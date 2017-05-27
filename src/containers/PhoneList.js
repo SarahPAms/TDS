@@ -1,11 +1,17 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import fetchPhones from '../actions/fetchPhones'
+import { bindActionCreators } from 'redux';
+import  fetchPhones  from '../actions/fetchPhones'
 
 
 class PhoneList extends PureComponent {
+
+  componentDidMount() {
+    fetchPhones()
+  }
+
   renderList(phones){
-    return this.props.phones.map(() => {
+    return this.props.phones.map((fetchPhones) => {
       return (
         <li
         key={phones.full_name}
@@ -18,8 +24,6 @@ class PhoneList extends PureComponent {
   }
 
   render(){
-    fetchPhones()
-    console.log(fetchPhones)
     return(
       <ul className="list-group col-md-4">
         {this.renderList(fetchPhones)}
@@ -32,4 +36,8 @@ function mapStateToProps({ phones }) {
   return { phones };
 }
 
-export default connect(mapStateToProps)(PhoneList);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchPhones }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneList);

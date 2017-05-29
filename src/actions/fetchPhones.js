@@ -6,7 +6,7 @@ const POPULAR_PHONES= '/portal/api/popular/phones';
 
 export const FETCH_PHONES = 'FETCH_PHONES';
 
-export function fetchPhones(){
+export default function fetchPhones(){
   const phones_url = `${ROOT_URL}${POPULAR_PHONES}`;
   console.log("fetching phones")
   const request = axios.get(phones_url, { 'headers': { 'Authorization' : API_KEY }})

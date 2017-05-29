@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPhones}  from '../actions/fetchPhones'
+import fetchPhones from '../actions/fetchPhones';
+import selectPhone from '../actions/selectPhone';
 
 
 class PhoneList extends PureComponent {
@@ -11,13 +12,13 @@ class PhoneList extends PureComponent {
   }
 
   renderList(phones){
-    return this.props.phones.map((phones) => {
+    return this.props.phones.map((phone) => {
       return (
         <li
-        key={phones.full_name}
-        onClick={()=> this.props.selectPhone(phones)}
+        key={phone.full_name}
+        onClick={()=> this.props.selectPhone(phone)}
         className="list-group-item">
-        {phones.full_name}
+        {phone.full_name}
         </li>
       );
     });
@@ -39,7 +40,7 @@ function mapStateToProps({ phones }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPhones }, dispatch);
+  return bindActionCreators({ fetchPhones, selectPhone }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneList);

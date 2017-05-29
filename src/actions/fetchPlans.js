@@ -9,11 +9,11 @@ export const FETCH_PLANS = 'FETCH_PLANS';
 export function fetchPlans(phone_id){
   const propositions_url = `${ROOT_URL}${FILTERED_BRAND}=${phone_id}`;
   console.log("fetching plans")
-  const request = axios.get(phones_url, { 'headers': { 'Authorization' : API_KEY }})
+  const request = axios.get(propositions_url, { 'headers': { 'Authorization' : API_KEY }})
 
 
    return{
-     type: FETCH_PHONES,
+     type: FETCH_PLANS,
      payload: request,
    }
 }

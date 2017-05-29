@@ -11,7 +11,7 @@ class PhoneList extends PureComponent {
   }
 
   renderList(phones){
-    return this.props.phones.map((fetchPhones) => {
+    return this.props.phones.map((phones) => {
       return (
         <li
         key={phones.full_name}
@@ -24,9 +24,11 @@ class PhoneList extends PureComponent {
   }
 
   render(){
+    console.log("do you get here?")
+    console.log(this.props.name)
     return(
       <ul className="list-group col-md-4">
-        {this.renderList(fetchPhones)}
+        {this.renderList()}
       </ul>
     )
   }

@@ -5,17 +5,25 @@ import { fetchPlans }  from '../actions/fetchPlans';
 
 class PhoneDetail extends PureComponent {
 
-  showPlans(){
-    (this.props.plans.map((plan) => {
-      plan.connection_fee
-      <li
-      key={plan.connection_fee}
-      className="list-group-item">
-      {plan.connection_fee}
-      </li>
-    }));
+  showPlans(plans){
+    return this.props.plans.map((plan)=> {
+      return(
+      <tr key={plan.provider.id}>
+        <td>
+          {plan.connection_fee}€
+        </td>
+        <td>
+          {plan.contract_term_in_months} months
+        </td>
+        <td>
+          {plan.data_credits/1000}GB
+        </td>
+      </tr>
+      )
+    });
   }
-  render() {
+
+  render(){
     if (!this.props.phone) {
       return <div> Select a phone to get started </div>
     }
@@ -24,7 +32,39 @@ class PhoneDetail extends PureComponent {
         <h3> Details for:</h3>
         <div> name: {this.props.phone.name}</div>
         <div> image: {this.props.phone.image}</div>
-        {this.showPlans()}
+        <table className="table table-hover">
+        <thead>
+          <tr>
+            <th> Price per month </th>
+            <th> Contract Duration </th>
+            <th> Data </th>
+            <th> Calling time </th>
+            <th> Text messages </th>
+            <th> {this.props.plans.length} </th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            this.props.plans.map((plan)=> {
+            return(
+
+            <tr key={plan.provider.id}>
+              <td>
+                {plan.connection_fee}€
+              </td>
+              <td>
+                {plan.contract_term_in_months} months
+              </td>
+              <td>
+                {plan.data_credits/1000}GB
+              </td>
+            </tr>
+            )
+
+
+        })}
+        </tbody>
+      </table>
       </div>
     );
   }

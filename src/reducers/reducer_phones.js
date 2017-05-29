@@ -4,8 +4,8 @@ export default (state = [], { type, payload } = {}) => {
   switch (type){
   case FETCH_PHONES:
   console.log("pick me")
-  console.log(payload)
-    return [].concat(payload.data);
+    return [].concat(payload.data)
+    break
   //concat payload data to state
 
   default:

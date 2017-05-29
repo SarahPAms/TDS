@@ -42,4 +42,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchPhones }, dispatch);
 }
 
-export default connect(mapStateToProps, { fetchPhones })(PhoneList);
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneList);

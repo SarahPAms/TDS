@@ -24,7 +24,7 @@ class PhoneList extends PureComponent {
   }
 
   render(){
-    console.log("this is the container?")
+    console.log("this is the container")
     console.log(this.props.name)
     return(
       <ul className="list-group col-md-4">

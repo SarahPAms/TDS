@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import  fetchPhones  from '../actions/fetchPhones'
+import { fetchPhones}  from '../actions/fetchPhones'
 
 
 class PhoneList extends PureComponent {
 
-  componentDidMount() {
-    fetchPhones()
+  componentWillMount() {
+    this.props.fetchPhones()
   }
 
   renderList(phones){

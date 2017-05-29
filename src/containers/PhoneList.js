@@ -3,31 +3,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchPhones from '../actions/fetchPhones';
 import selectPhone from '../actions/selectPhone';
-import  fetchPlans from '../actions/fetchPhones';
+import  { fetchPlans } from '../actions/fetchPlans';
 
 
 class PhoneList extends PureComponent {
 
   componentWillMount() {
-    this.props.fetchPhones()
-    this.props.fetchPlans(1);
+    this.props.fetchPhones();
   }
 
-  getPhoneId(phone) {
 
-  }
   renderList(phones){
     return this.props.phones.map((phone) => {
-      const phone_id = phone.id
       return (
         <li
         key={phone.full_name}
         onClick={
           () => {
-            // this.props.fetchPlans(1);
             this.props.selectPhone(phone) ;
-
-
+            this.props.fetchPlans(phone.brand.id);
           }
         }
         className="list-group-item">
@@ -47,8 +41,8 @@ class PhoneList extends PureComponent {
   }
 }
 
-function mapStateToProps({ phones, selectedPhone }) {
-  return { phones, selectedPhone };
+function mapStateToProps({ phones, phone }) {
+  return { phones, phone };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -9,15 +9,10 @@ export const FETCH_PHONES = 'FETCH_PHONES';
 export default function fetchPhones(){
   const phones_url = `${ROOT_URL}${POPULAR_PHONES}`;
   console.log("hi")
-  axios.get(phones_url, { 'headers': { 'Authorization' : API_KEY }})
-   .then((request) => {
-    console.log(request)
-
-    return{
-      type: FETCH_PHONES,
-      payload: [].concat(request.data),
-    };
-  });
-
+  const request = axios.get(phones_url, { 'headers': { 'Authorization' : API_KEY }})
+  return{
+    type: FETCH_PHONES,
+    payload: request,
+  };
 
 }

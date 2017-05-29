@@ -7,7 +7,7 @@ import  fetchPhones  from '../actions/fetchPhones'
 class PhoneList extends PureComponent {
 
   componentDidMount() {
-    fetchPhones()
+    this.props.fetchPhones()
   }
 
   renderList(phones){

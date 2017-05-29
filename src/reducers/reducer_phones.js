@@ -3,10 +3,9 @@ import { FETCH_PHONES } from '../actions/fetchPhones';
 export default (state = [], { type, payload } = {}) => {
   switch (type){
   case FETCH_PHONES:
-  console.log("pick me")
-    return [].concat(payload.data)
-    break
-  //concat payload data to state
+  console.log("fetch phones" )
+  console.log(payload)
+    return [].concat(payload.data);
 
   default:
     return state

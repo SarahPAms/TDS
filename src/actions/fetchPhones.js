@@ -8,15 +8,10 @@ export const FETCH_PHONES = 'FETCH_PHONES';
 
 export function fetchPhones(){
   const phones_url = `${ROOT_URL}${POPULAR_PHONES}`;
-  console.log("hi")
+  console.log("fetching phones")
   const request = axios.get(phones_url, { 'headers': { 'Authorization' : API_KEY }})
   return{
     type: FETCH_PHONES,
     payload: request,
-  };
-
-   return{
-     type: FETCH_PHONES,
-     payload: request,
-   }
+  }
 }

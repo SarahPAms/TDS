@@ -13,7 +13,6 @@ import reducers from './reducers';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const createStoreWithMiddleware = composeEnhancers(applyMiddleware(ReduxPromise))(createStore);
 const store = createStoreWithMiddleware(reducers);
-console.log(store.getState())
 
 // let store = createStore(
 //   reducers,

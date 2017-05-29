@@ -1,8 +1,9 @@
 import { FETCH_PHONES } from '../actions/fetchPhones';
 
-export default (state = [], { action, payload } = {}) => {
-  switch (action){
+export default (state = [], { type, payload } = {}) => {
+  switch (type){
   case FETCH_PHONES:
+  console.log("pick me")
     return [].concat(payload);
   //concat payload data to state
 

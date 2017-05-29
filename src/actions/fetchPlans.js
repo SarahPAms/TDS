@@ -10,7 +10,7 @@ export function fetchPlans(phone_id){
   const propositions_url = `${ROOT_URL}${FILTERED_BRAND}=${phone_id}`;
   console.log("fetching plans")
   const request = axios.get(propositions_url, { 'headers': { 'Authorization' : API_KEY }})
-
+  console.log(request)
 
    return{
      type: FETCH_PLANS,

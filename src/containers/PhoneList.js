@@ -25,7 +25,7 @@ class PhoneList extends PureComponent {
 
   render(){
     console.log("do you get here?")
-    console.log(this.props.name)
+    console.log(this.props)
     return(
       <ul className="list-group col-md-4">
         {this.renderList()}

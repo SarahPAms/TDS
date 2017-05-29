@@ -13,10 +13,5 @@ export function fetchPhones(){
   return{
     type: FETCH_PHONES,
     payload: request,
-  };
-
-   return{
-     type: FETCH_PHONES,
-     payload: request,
-   }
+  }
 }

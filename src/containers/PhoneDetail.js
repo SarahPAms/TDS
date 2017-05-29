@@ -31,7 +31,7 @@ class PhoneDetail extends PureComponent {
       <div>
         <h3> Details for:</h3>
         <div> name: {this.props.phone.name}</div>
-        <div> image: {this.props.phone.image}</div>
+        <div> <img src={this.props.phone.image}/></div>
         <table className="table table-hover">
         <thead>
           <tr>
@@ -57,6 +57,12 @@ class PhoneDetail extends PureComponent {
               </td>
               <td>
                 {plan.data_credits/1000}GB
+              </td>
+              <td>
+                {plan.voice_credits} minutes
+              </td>
+              <td>
+                {plan.sms_credits} sms
               </td>
             </tr>
             )

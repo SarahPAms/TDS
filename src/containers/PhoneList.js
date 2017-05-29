@@ -7,12 +7,6 @@ import  { fetchPlans } from '../actions/fetchPlans';
 
 
 class PhoneList extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = { phone_id: '' }
-
-  }
 
   componentWillMount() {
     this.props.fetchPhones();
@@ -27,7 +21,7 @@ class PhoneList extends PureComponent {
         onClick={
           () => {
             this.props.selectPhone(phone) ;
-            this.props.fetchPlans(this.state.phone_id);
+            this.props.fetchPlans(phone.brand.id);
           }
         }
         className="list-group-item">

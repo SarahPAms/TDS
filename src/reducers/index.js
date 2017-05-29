@@ -6,7 +6,7 @@ import SelectedPhoneReducer from './reducerSelectPhone'
 const rootReducer = combineReducers({
   phones: PhonesReducer,
   plans: PlansReducer,
-  selectedPhone: SelectedPhoneReducer,
+  phone: SelectedPhoneReducer,
 });
 
 export default rootReducer;

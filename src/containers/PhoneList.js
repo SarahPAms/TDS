@@ -18,9 +18,7 @@ class PhoneList extends PureComponent {
     this.props.fetchPhones();
   }
 
-  getPhoneId(phone) {
 
-  }
   renderList(phones){
     return this.props.phones.map((phone) => {
       return (
@@ -49,8 +47,8 @@ class PhoneList extends PureComponent {
   }
 }
 
-function mapStateToProps({ phones, selectedPhone }) {
-  return { phones, selectedPhone };
+function mapStateToProps({ phones, phone }) {
+  return { phones, phone };
 }
 
 function mapDispatchToProps(dispatch) {

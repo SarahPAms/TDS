@@ -2,13 +2,13 @@ import axios from 'axios';
 
 const API_KEY = 'Token "1c7ff3f6-769e-44db-a7ce-97bef6f32341"';
 const ROOT_URL = 'https://pcnltelecom.tdsapi.com';
-const POPULAR_PHONES= '/portal/api/popular/phones';
+const FILTERED_BRAND = '/portal/api/popular/propositions?brand_id';
 
-export const FETCH_PHONES = 'FETCH_PHONES';
+export const FETCH_PLANS = 'FETCH_PLANS';
 
-export function fetchPhones(){
-  const phones_url = `${ROOT_URL}${POPULAR_PHONES}`;
-  console.log("fetching phones")
+export function fetchPlans(phone_id){
+  const propositions_url = `${ROOT_URL}${FILTERED_BRAND}=${phone_id}`;
+  console.log("fetching plans")
   const request = axios.get(phones_url, { 'headers': { 'Authorization' : API_KEY }})
 
 

@@ -3,14 +3,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchPhones from '../actions/fetchPhones';
 import selectPhone from '../actions/selectPhone';
-import  fetchPlans from '../actions/fetchPhones';
+import  { fetchPlans } from '../actions/fetchPlans';
 
 
 class PhoneList extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = { phone_id: '' }
+
+  }
 
   componentWillMount() {
-    this.props.fetchPhones()
-    this.props.fetchPlans(1);
+    this.props.fetchPhones();
   }
 
   getPhoneId(phone) {
@@ -18,16 +23,13 @@ class PhoneList extends PureComponent {
   }
   renderList(phones){
     return this.props.phones.map((phone) => {
-      const phone_id = phone.id
       return (
         <li
         key={phone.full_name}
         onClick={
           () => {
-            // this.props.fetchPlans(1);
             this.props.selectPhone(phone) ;
-
-
+            this.props.fetchPlans(this.state.phone_id);
           }
         }
         className="list-group-item">

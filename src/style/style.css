@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+td, th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.phone-text {
+  text-align: center !important;
+
+}
+
+.phone-image {
+  text-align: center;
+  padding-top: 5em;
+}
+
+li:hover{
+    background-color: #ee80ea;
+}

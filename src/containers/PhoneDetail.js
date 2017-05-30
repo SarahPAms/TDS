@@ -2,36 +2,19 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPlans }  from '../actions/fetchPlans';
+import '../style/style.css'
 
 class PhoneDetail extends PureComponent {
-
-  showPlans(plans){
-    return this.props.plans.map((plan)=> {
-      return(
-      <tr key={plan.provider.id}>
-        <td>
-          {plan.connection_fee}€
-        </td>
-        <td>
-          {plan.contract_term_in_months} months
-        </td>
-        <td>
-          {plan.data_credits/1000}GB
-        </td>
-      </tr>
-      )
-    });
-  }
 
   render(){
     if (!this.props.phone) {
       return <div> Select a phone to get started </div>
     }
     return (
-      <div>
+      <div className= "container" >
         <h3> Details for:</h3>
-        <div> name: {this.props.phone.name}</div>
-        <div> <img src={this.props.phone.image}/></div>
+        <div className="phone-text"> <h4>{this.props.phone.full_name}</h4></div>
+        <div className="phone-image"> <img src={this.props.phone.image} alt={this.props.phone.name}/></div>
         <table className="table table-hover">
         <thead>
           <tr>
@@ -40,7 +23,6 @@ class PhoneDetail extends PureComponent {
             <th> Data </th>
             <th> Calling time </th>
             <th> Text messages </th>
-            <th> {this.props.plans.length} </th>
           </tr>
         </thead>
         <tbody>
@@ -59,10 +41,10 @@ class PhoneDetail extends PureComponent {
                 {plan.data_credits/1000}GB
               </td>
               <td>
-                {plan.voice_credits} minutes
+                {plan.voice_credits===2147483647 ? "unlimited" : plan.voice_credits } minutes
               </td>
               <td>
-                {plan.sms_credits} sms
+                {plan.sms_credits===2147483647 ? "unlimited" : plan.sms_credits} sms
               </td>
             </tr>
             )
